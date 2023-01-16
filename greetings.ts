@@ -1,27 +1,23 @@
+import { DayPhase } from "./interfaces/day-phase-interface";
+
 const date = new Date();
-let hour = date.getHours().toLocaleString();
+let getCurrentHour: number = Number(date.getHours().toLocaleString());
 
-let printScreen = document.getElementById('sayHello')! as HTMLSpanElement;
+let printScreen: HTMLSpanElement = document.getElementById(
+  "sayHello"
+)! as HTMLSpanElement;
 
-let afternoonStart:string|number,afternoonFinish:string|number,morningStart:string|number,morningFinish:string|number,eveningStart:string|number,eveningFinish:string|number;
+const dayTime: DayPhase = { start: 6, finish: 10 };
+const evening: DayPhase = { start: 11, finish: 16 };
+const night: DayPhase = { start: 17, finish: 23 };
 
-//Gün saatlerini ayarlama
-morningStart = "6";
-morningFinish = "10";
-afternoonStart = "11";
-afternoonFinish = "16";
-eveningStart = "17";
-eveningFinish = "23"
-
-if (Number(hour) >= Number(morningStart) && Number(hour) <= Number(morningFinish)) {
-    printScreen.textContent = "Günaydın 👻";
+if (getCurrentHour >= dayTime.start && getCurrentHour <= dayTime.finish) {
+  printScreen.textContent = "Günaydın 😊";
+} else if (
+  getCurrentHour >= evening.start &&
+  getCurrentHour <= evening.finish
+) {
+  printScreen.textContent = "Tünaydın 👽";
+} else if (getCurrentHour >= night.start && getCurrentHour <= night.finish) {
+  printScreen.textContent = "İyi geceler (❁´◡`❁)";
 }
-
-if (Number(hour) >= Number(afternoonStart) && Number(hour) <= Number(afternoonFinish)) {
-    printScreen.textContent = "Tünaydın 👽";
-}
-
-if(Number(hour) >= Number(eveningStart) && Number(hour) <= Number(eveningFinish)) {
-    printScreen.textContent = "İyi Akşamlar 🤖";
-}
-
