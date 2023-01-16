@@ -3,9 +3,7 @@ import { DayPhase } from "./interfaces/day-phase-interface";
 const date = new Date();
 let getCurrentHour: number = Number(date.getHours().toLocaleString());
 
-let printScreen: HTMLSpanElement = document.getElementById(
-  "sayHello"
-)! as HTMLSpanElement;
+let printScreen: HTMLSpanElement = document.getElementById("sayHello")! as HTMLSpanElement;
 
 const dayTime: DayPhase = { start: 6, finish: 10 };
 const evening: DayPhase = { start: 11, finish: 16 };

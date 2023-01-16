@@ -1,31 +1,28 @@
-"use strict";
 const listAllUserBtn = document.querySelector("#listAllUserBtn");
-let userId = document.getElementById("id");
-let userPassword = document.getElementById("password");
-let button = document.getElementById("send");
-let clearButton = document.getElementById("clearBtn");
-let date1 = new Date();
-let output = date1.toLocaleDateString();
-console.log(output);
-let userList = [
+const userId = document.getElementById("id");
+const userPassword = document.getElementById("password");
+const button = document.getElementById("send");
+const clearButton = document.getElementById("clearBtn");
+const date1 = new Date();
+const output = date1.toLocaleDateString();
+const userList = [
     {
-        userName: "squalcan",
-        userPassword: "123",
-        userMail: "squalcaan@gmail.com",
+        userMail: "furkandeniz@gmail.com",
+        userName: "furki1337",
+        userPassword: "asdasd",
     },
 ];
-let btnClear = () => {
+function btnClear() {
     userId.value = "";
     userPassword.value = "";
-};
+}
 clearButton === null || clearButton === void 0 ? void 0 : clearButton.addEventListener("mousedown", btnClear);
-let loginSection = () => {
+const loginSection = () => {
     let error1 = document.querySelector(".error1");
     let alerted = document.querySelector(".alert");
     let msg = document.createElement("span");
     for (let index of userList) {
-        if (index.userName == userId.value &&
-            index.userPassword == userPassword.value) {
+        if (index.userName == userId.value && index.userPassword == userPassword.value) {
             const infosArea = document.querySelector(".info");
             const createDiv1 = document.createElement("div");
             createDiv1.setAttribute("id", "infoArea");
@@ -58,7 +55,6 @@ let loginSection = () => {
             };
         }
         else {
-            console.log("wtf");
             const accesInfo = document.querySelector(".info");
             let divError = document.createElement("div");
             divError.setAttribute("class", "error-box");
@@ -99,63 +95,30 @@ let loginSection = () => {
         }
     }
 };
-var input = document.getElementById("password");
+const input = document.getElementById("password");
 let registerUserId = document.getElementById("registerUserId");
 let registerUserPassword = document.getElementById("registerPassword");
 let registerUserBtn = document.querySelector("#registerUserBtn");
 let mailRegister = document.querySelector("#mail1");
 function registerUser() {
     for (let index of userList) {
-        if (mailRegister.value == "" ||
-            registerUserId.value == "" ||
-            registerUserId.value == " " ||
-            registerUserPassword.value == "" ||
-            registerUserPassword.minLength == 0) {
+        if (!mailRegister.value ||
+            !registerUserId.value ||
+            !registerUserId.value ||
+            !registerUserPassword.value ||
+            !registerUserPassword.minLength) {
             alert("Lütfen bütün bilgileri düzgün giriniz.");
-            break;
+            return;
         }
-        if (mailRegister.value.indexOf(".com") == -1 &&
-            mailRegister.value.indexOf(".net") == -1 &&
-            mailRegister.value.indexOf(".org") == -1 &&
-            mailRegister.value.indexOf(".uk") == -1 &&
-            mailRegister.value.indexOf(".cn") == -1 &&
-            mailRegister.value.indexOf(".nl") == -1 &&
-            mailRegister.value.indexOf(".tk") == -1 &&
-            mailRegister.value.indexOf(".icu") == -1 &&
-            mailRegister.value.indexOf(".xyz") == -1 &&
-            mailRegister.value.indexOf(".top") == -1 &&
-            mailRegister.value.indexOf(".online") == -1 &&
-            mailRegister.value.indexOf(".site") == -1 &&
-            mailRegister.value.indexOf(".wang") == -1 &&
-            mailRegister.value.indexOf(".club") == -1 &&
-            mailRegister.value.indexOf(".shop") == -1 &&
-            mailRegister.value.indexOf(".vip") == -1 &&
-            mailRegister.value.indexOf(".club") == -1 &&
-            mailRegister.value.indexOf(".work") == -1 &&
-            mailRegister.value.indexOf("@") == -1 &&
-            mailRegister.value.indexOf("gmail") == -1 &&
-            mailRegister.value.indexOf("yahoo") == -1 &&
-            mailRegister.value.indexOf("titan") == -1 &&
-            mailRegister.value.indexOf("constant") == -1 &&
-            mailRegister.value.indexOf("hubspot") == -1 &&
-            mailRegister.value.indexOf("sendinblue") == -1 &&
-            mailRegister.value.indexOf("aweber") == -1 &&
-            mailRegister.value.indexOf("protonmail") == -1 &&
-            mailRegister.value.indexOf("outlook") == -1 &&
-            mailRegister.value.indexOf("zoho") == -1 &&
-            mailRegister.value.indexOf("aol") == -1 &&
-            mailRegister.value.indexOf("mail") == -1 &&
-            mailRegister.value.indexOf("gmx") == -1 &&
-            mailRegister.value.indexOf("icloud") == -1 &&
-            mailRegister.value.indexOf("yandex") == -1) {
-            console.log("mail");
+        const regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        if (!regexp) {
             let alerted = document.querySelector("#myModal");
             const span = document.getElementsByClassName("close")[0];
             alerted.style.display = "block";
             span.onclick = function () {
                 alerted.style.display = "none";
             };
-            break;
+            return;
         }
         else {
             userList.push({
@@ -163,7 +126,7 @@ function registerUser() {
                 userPassword: registerUserPassword.value,
                 userMail: mailRegister.value,
             });
-            break;
+            return;
         }
     }
 }
@@ -193,3 +156,4 @@ if (listAllUserBtn) {
 if (button) {
     button.addEventListener("click", loginSection);
 }
+export {};
