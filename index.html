@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./images/icon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <title>Giriş Ekranı</title>
+</head>
+
+<body>
+  <div class="container-sm">
+
+    <div class="input-group mb-3" id="idArea">
+      <span class="input-group-text" id="basic-addon1">
+        <!--Bu kısım variableNames.ts tarafından dolduruluyor.-->
+      </span>
+      <input type="text" id="id" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3" id="passwordArea">
+      <span class="input-group-text" id="basic-addon2">
+        <!-- Bu kısım variableNames.ts tarafından dolduruluyor. -->
+      </span>
+      <input type="password" id="password" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon2">
+    </div>
+    <button type="button" class="btn btn-info" id="send">Giriş Yap</button>
+    <button type="button" class="btn btn-danger float-end" id="clearBtn">Temizle</button>
+    <div class="info"></div>
+
+
+    <div class="welcomeArea">
+      <span id="sayHello"></span>
+    </div>
+
+
+    <div class="registerArea">
+      <label class="textRegister">Kayıt Olma Yeri</label>
+      <div class="input-group mb-3" id="registerIdArea">
+        <span class="input-group-text" id="registerIdText">Kullanıcı Adı</span>
+        <input type="text" id="registerUserId" class="form-control" placeholder="Can" aria-label="username"
+          aria-describedby="registerIdArea">
+      </div>
+      <div class="input-group mb-3" id="registerPasswordArea">
+        <span class="input-group-text" id="registerPasswordText">Oluşturulan Şifre</span>
+        <input type="password" id="registerPassword" class="form-control" placeholder="*******" aria-label="password"
+          aria-describedby="registerPasswordArea">
+      </div>
+      <div class="form-group">
+        <span class="input-group-text" id="mail">Email</span>
+        <input type="email" class="form-control" id="mail1" aria-describedby="emailHelp"
+          placeholder="superbuyucu@gmail.com">
+      </div>
+      <button type="button" class="btn btn-warning" id="registerUserBtn">Kayıt Ol</button>
+    </div>
+
+
+
+
+    <div class="input-group mb-3" id="memberListArea">
+      <span class="input-group-text" id="memberListText">Üyeleri Listele:</span>
+      <button type="button" class="btn btn-danger" id="listAllUserBtn">Listeyi Getir</button>
+      <ul class="list-group">
+      </ul>
+    </div>
+  </div>
+  <div class="error1"></div>
+  <div class="alert">
+    <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Lütfen düzgün bir mail giriniz! ==> example@mail.com</p>
+                   </div>
+  </div>
+  <!--
+      <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script  src="variableNames.js"></script>
+  <script  src="greetings.js"></script>
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
